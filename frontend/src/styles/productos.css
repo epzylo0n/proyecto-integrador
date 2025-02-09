@@ -1,0 +1,131 @@
+.productos-container {
+  display: grid;
+  grid-template-columns: auto 300px; /* Ajuste dinámico de los productos */
+  gap: 20px;
+  max-width: 90%; /* Limita el ancho total */
+  margin: auto; /* Centra el contenedor */
+  padding: 20px;
+  min-height: calc(100vh - 200px);
+  justify-content: center;
+}
+
+.productos-titulo {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 20px;
+  color: white;
+  width: 100%;
+}
+
+.barra-busqueda {
+  width: 300px;
+  background: #333;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-left: 20px;
+  padding-right: 20px; 
+  text-align: center;
+}
+
+
+.barra-busqueda h3 {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.barra-busqueda input,
+.barra-busqueda select {
+  width: 80%;
+  padding: 8px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px; 
+  padding: 16px; 
+}
+
+.barra-busqueda button {
+  width: 80%;
+  margin-top: 10px;
+  padding: 10px;
+  background: blue;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.productos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start; /* Alinea las tarjetas desde la izquierda */
+}
+
+.producto-card {
+  flex: 1 1 calc(20% - 20px); /* Distribuye 5 tarjetas por fila */
+  min-width: 200px; /* Tamaño mínimo */
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.producto-card:hover {
+  transform: scale(1.05);
+}
+
+.producto-imagen {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.producto-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.producto-nombre {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.producto-descripcion {
+  font-size: 14px;
+  color: #666;
+}
+
+.producto-precio {
+  font-size: 18px;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.producto-envio {
+  font-size: 14px;
+  color: green;
+  font-weight: bold;
+}
+
+.producto-boton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.producto-boton:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,99 @@
+.contenedor-principal {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px; /* Aumentar la separación entre el formulario y la tabla */
+    padding-top: 70px; /* Espacio para la navbar */
+    padding-bottom: 50px; /* Espacio para el footer */
+  }
+  
+  .form-container {
+    max-width: 500px; /* Aumentar el tamaño del formulario */
+    padding: 20px;
+    background: #222;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    color: white;
+    margin-left: 200px; /* Ajustar el margen izquierdo */
+  }
+  
+  .titulo-form {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .formulario {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input, textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: none;
+  }
+  
+  textarea {
+    height: 80px;
+  }
+  
+  label {
+    margin-bottom: 10px;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+  
+  .btn-agregar {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-agregar:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  
+  .tabla-container {
+    max-width: 600px;
+    padding: 20px;
+    background: #222;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    color: white;
+  }
+  
+  .productos-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .productos-table td, .productos-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .productos-table tr:nth-child(even) {
+    background-color: #333;
+  }
+  
+  .productos-table tr:hover {
+    background-color: #444;
+  }
+  
+  .productos-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #555;
+    color: white;
+  }
