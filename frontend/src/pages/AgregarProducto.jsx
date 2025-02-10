@@ -223,7 +223,7 @@ const AgregarProducto = () => {
           <textarea name="descripcionLarga" placeholder="Descripción Larga" value={producto.descripcionLarga} onChange={handleChange} />
           {errores.descripcionLarga && <p className="error">{errores.descripcionLarga}</p>}
 
-          <input type="text" name="foto" placeholder="URL de la imagen" value={producto.foto} onChange={handleChange} />
+          <input type="text" name="foto" placeholder="URL de la imagen 550x550 px" value={producto.foto} onChange={handleChange} />
           {errores.foto && <p className="error">{errores.foto}</p>}
 
           <label>

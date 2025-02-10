@@ -28,6 +28,11 @@
   margin-left: 20px;
   padding-right: 20px; 
   text-align: center;
+  position: sticky; /* 🔥 Fija la barra en su lugar */
+  top: 100px; /* 🔥 Ajusta la posición en la pantalla */
+  max-height: 400px; /* 🔥 Evita que crezca demasiado */
+  overflow-y: auto; /* 🔥 Agrega scroll si hay muchas opciones */
+  align-self: flex-start;
 }
 
 
@@ -82,8 +87,10 @@
 
 .producto-imagen {
   width: 100%;
-  height: 180px;
+  height: auto;
+  max-height: 350px;
   object-fit: cover;
+
 }
 
 .producto-info {

@@ -34,12 +34,15 @@ function Productos({ agregarAlCarrito }) {
   function aplicarFiltros() {
     return productos.filter(producto => {
       const cumpleNombre = filtros.nombre === "" || producto.nombre.toLowerCase().includes(filtros.nombre.toLowerCase());
-      const cumpleCategoria = filtros.categoria === "" || producto.categoria === filtros.categoria;
+      const cumpleCategoria = filtros.categoria === "" || producto.categoria.toLowerCase().trim() === filtros.categoria.toLowerCase().trim();
       const cumplePrecioMin = filtros.precioMin === "" || producto.precio >= parseFloat(filtros.precioMin);
       const cumplePrecioMax = filtros.precioMax === "" || producto.precio <= parseFloat(filtros.precioMax);
       return cumpleNombre && cumpleCategoria && cumplePrecioMin && cumplePrecioMax;
     });
   }
+
+  // 🔥 Obtener categorías únicas para el select dinámico
+  const categoriasUnicas = [...new Set(productos.map((p) => p.categoria))];
 
   return (
     <div>
@@ -51,6 +54,7 @@ function Productos({ agregarAlCarrito }) {
               <img src={producto.foto || "https://via.placeholder.com/200"} alt={producto.nombre} className="producto-imagen" />
               <div className="producto-info">
                 <h3 className="producto-nombre">{producto.nombre}</h3>
+                <p className="producto-categoria"><strong>Categoría:</strong> {producto.categoria}</p> {/* 🔥 Se muestra la categoría */}
                 <p className="producto-descripcion">{producto.descripcionCorta}</p>
                 <p className="producto-precio">${producto.precio}</p>
                 {producto.envio && <p className="producto-envio">🚚 Envío Gratis</p>}
@@ -69,13 +73,9 @@ function Productos({ agregarAlCarrito }) {
             value={filtros.nombre}
             onChange={handleFiltroChange}
           />
-          <input
-            type="text"
-            name="categoria"
-            placeholder="Buscar por categoría"
-            value={filtros.categoria}
-            onChange={handleFiltroChange}
-          />
+
+          {/* 🔥 Nuevo select dinámico de categorías */}
+
           <input
             type="number"
             name="precioMin"
@@ -90,6 +90,15 @@ function Productos({ agregarAlCarrito }) {
             value={filtros.precioMax}
             onChange={handleFiltroChange}
           />
+
+            <select name="categoria" value={filtros.categoria} onChange={handleFiltroChange}>
+            <option value="">Todas las categorías</option>
+            {categoriasUnicas.map((categoria, index) => (
+              <option key={index} value={categoria}>
+                {categoria}
+              </option>
+            ))}
+          </select>
           <button onClick={aplicarFiltros}>Aplicar Filtros</button>
         </div>
       </div>
