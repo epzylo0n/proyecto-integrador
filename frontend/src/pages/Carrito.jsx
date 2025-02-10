@@ -10,31 +10,33 @@ function Carrito({ carrito, setCarrito }) {
   }, [carrito]);
 
   // Agrupar productos por ID sumando sus cantidades
-  const carritoAgrupado = carrito.reduce((acc, producto) => {
-    const existe = acc.find((p) => p._id === producto._id);
-    if (existe) {
-      existe.cantidad += 1;
-    } else {
-      acc.push({ ...producto, cantidad: 1 });
-    }
-    return acc;
-  }, []);
+  const carritoAgrupado = carrito.map((producto) => ({
+    ...producto,
+    cantidad: producto.cantidad || 1,
+  }));
+  
+  
 
   const modificarCantidad = (id, nuevaCantidad) => {
     setCarrito((prevCarrito) =>
       prevCarrito.map((producto) =>
-        producto._id === id ? { ...producto, cantidad: Math.max(1, nuevaCantidad) } : producto
+        producto._id === id
+          ? { ...producto, cantidad: Math.max(1, nuevaCantidad) }
+          : producto
       )
     );
   };
+  
+  
 
   const eliminarDelCarrito = (id) => {
     setCarrito((prevCarrito) => prevCarrito.filter((producto) => producto._id !== id));
   };
 
   const calcularTotal = () => {
-    return carritoAgrupado.reduce((total, producto) => total + producto.precio * producto.cantidad, 0);
+    return carrito.reduce((total, producto) => total + producto.precio * producto.cantidad, 0);
   };
+  
 
   const navigate = useNavigate();
 

@@ -4,7 +4,8 @@ import PropTypes from "prop-types"; // ✅ Importación agregada para validar pr
 
 function Navbar({ carrito }) {
   // Contar la cantidad total de productos en el carrito
-  const cantidadProductos = carrito.reduce((acc, prod) => acc + (prod.cantidad || 1), 0);
+  const cantidadProductos = carrito.reduce((acc, prod) => acc + prod.cantidad, 0);
+
 
   return (
     <nav className="navbar">

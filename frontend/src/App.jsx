@@ -22,8 +22,18 @@ function App() {
   }, [carrito]);
 
   const agregarAlCarrito = (producto) => {
-    setCarrito((prevCarrito) => [...prevCarrito, producto]);
+    setCarrito((prevCarrito) => {
+      const existe = prevCarrito.find((p) => p._id === producto._id);
+      if (existe) {
+        return prevCarrito.map((p) =>
+          p._id === producto._id ? { ...p, cantidad: p.cantidad + 1 } : p
+        );
+      } else {
+        return [...prevCarrito, { ...producto, cantidad: 1 }];
+      }
+    });
   };
+  
 
   return (
     <div className="app-container">
