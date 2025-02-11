@@ -1,0 +1,31 @@
+# Logs y depuración
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencias (No se deben subir)
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+dist/
+dist-ssr/
+public/
+
+# Archivos de entorno (NO subir credenciales)
+.env
+.env.local
+.env.*.local
+
+# Archivos específicos de editores y SO
+.vscode/
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
